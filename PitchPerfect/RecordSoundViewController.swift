@@ -56,6 +56,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         try! audioSession.setActive(false, options: [])
     }
     
+    // MARK: Configure UI when recording or not recording
     func configureUI(recording: Bool) {
         stopButton.isEnabled = recording
         recordButton.isEnabled = !recording
@@ -71,9 +72,10 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    // MARK: helper method to show alert
     func showAlert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
